@@ -21,17 +21,18 @@ public class Test19SpringBoot2Application {
 	@Value("${book.pinyin}")
 	private String bookPinYin;
 
-	public static void main(String[] args) {
+    public static void main(String[] args) {
 //		SpringApplication.run(Test19SpringBoot2Application.class, args);//默认启动方式
-		SpringApplicationBuilder builder = new SpringApplicationBuilder(Test19SpringBoot2Application.class);
-		//修改Banner的模式为OFF
-		builder.bannerMode(Banner.Mode.OFF).run(args);
-	}
+        SpringApplicationBuilder builder = new SpringApplicationBuilder(Test19SpringBoot2Application.class);
+        //修改Banner的模式为OFF
+//        builder.bannerMode(Banner.Mode.OFF).run(args);
+        builder.run(args);
+    }
 
-	@Autowired
-	private BookBean bookBean;
+    @Autowired
+    private BookBean bookBean;
 
-	@RequestMapping(value = "/",produces = "text/plain;charset=UTF-8")
+    @RequestMapping(value = "/",produces = "text/plain;charset=UTF-8")
 	String index(){
 		return "Hello Spring Boot! The BookName is "+bookName+";and Book Author is "+bookAuthor+";and Book PinYin is "+bookPinYin;
 //		return "Hello Spring Boot!";
