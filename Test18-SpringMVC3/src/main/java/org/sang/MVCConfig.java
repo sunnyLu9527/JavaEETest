@@ -51,12 +51,18 @@ public class MVCConfig extends WebMvcConfigurerAdapter{
      * /**的意思是所有文件，包括文件夹中的子文件
      * /*是所有文件，不包含子文件
      * /是web项目的根目录
+     *
+     *
+     * SpringBoot默认给我们配置了静态资源的地址转发，
+     * 我们只需要将静态文件放到/resources/static目录下，就可以直接访问了。
+     * 但是这样往往会暴露给用户我们的项目结构，
+     * 针对这一点我们需要修改静态资源的路径
      * @param registry
      */
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        //两个*表示以/assets开始的任意层级的路径都可以访问得到图片，如<img src="../assets/img/1.png">
-        //一个*表示只可以访问assets目录下的图片文件
+
+        //将所有/assets/**静态资源请求映射到assets目录下面
         registry.addResourceHandler("/assets/**").addResourceLocations("classpath:/assets/");
     }
 

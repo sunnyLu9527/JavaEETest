@@ -12,7 +12,8 @@
 <body>
 <p>Welcome To SpringMVC World!</p>
 <p>
-    <img src="../assets/img/1.png">
+    <img src="/assets/img/1.jpg">
+    <img src="/assets/1.png">
 </p>
 </body>
 </html>
